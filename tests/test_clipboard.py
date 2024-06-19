@@ -7,7 +7,7 @@ class TestClipboardFuncs(unittest.TestCase):
 
     @patch('src.jp_translator.clipboard.pyperclip.paste')
     def test_get_clipboard(self, mock_paste):
-        mock_paste.return_value = "Random clipboard content."
+        mock_paste.return_value = "  Random clipboard content.  "
         result = get_clipboard()
         self.assertEqual(result, "Random clipboard content.")
 
