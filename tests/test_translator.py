@@ -10,12 +10,14 @@ class TestTranslatorFuncs(unittest.TestCase):
     def test_isjapanese_katakana(self):
         self.assertTrue(is_japanese("ホットドッグ"))
 
-    def test3_isjapanese_kanji(self):
+    def test_isjapanese_kanji(self):
         self.assertTrue(is_japanese("世界"))
 
-    def test4_isjapanese_mixedcharacters(self):
+    def test_isjapanese_mixedjpchars(self):
         self.assertTrue(is_japanese("こんにちはホットドッグ世界"))
 
+    def test_isjapanese_nonjp(self):
+        self.assertFalse(is_japanese("Hello world"))
 
 if __name__ == '__main__':
     unittest.main()
