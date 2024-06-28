@@ -1,6 +1,20 @@
 import re
+import deepl
+import os
 from functools import lru_cache
+from dotenv import load_dotenv
 
+
+# Load API key
+load_dotenv()
+deepl_key = os.getenv('DEEPL_API_KEY')
+if not deepl_key:
+    raise ValueError('No API key found.')
+
+# Initialize deepL translator
+translator = deepl.Translator(deepl_key)
+
+# Define regular expressions for Hiragana, Katakana, and Kanji
 HIRAGANA_RE = re.compile(r'[\u3040-\u309F]')
 KATAKANA_RE = re.compile(r'[\u30A0-\u30FF]')
 KANJI_RE = re.compile(r'[\u4E00-\u9FFF]')
@@ -24,7 +38,7 @@ def is_japanese(text: str) -> bool:
 @lru_cache(maxsize=32)
 def translate_text(text: str) -> str:
     """
-    Translates Japanese input to English.
+    Translates Japanese input to English using DeepL API
 
     Args:
         text (str): Japanese text to translate
@@ -34,8 +48,8 @@ def translate_text(text: str) -> str:
     """
     try:
         if is_japanese(text):
-            # TODO
-            return None
+            result = translator.translate_text(text, target_lang='EN-US')
+            return result.text
         else:
             raise ValueError("The text does not contain Japanese characters!")
     except ValueError as ve:
