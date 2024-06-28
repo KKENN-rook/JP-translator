@@ -19,5 +19,6 @@ class TestTranslatorFuncs(unittest.TestCase):
     def test_isjapanese_nonjp(self):
         self.assertFalse(is_japanese("Hello world"))
 
+
 if __name__ == '__main__':
     unittest.main()
