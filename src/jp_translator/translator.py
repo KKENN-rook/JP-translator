@@ -14,7 +14,7 @@ if not deepl_key:
 # Initialize deepL translator
 translator = deepl.Translator(deepl_key)
 
-# Define regular expressions for Hiragana, Katakana, and Kanji
+# Define regular expressions for Hiragana, Katakana, and Kanji (Unicode)
 HIRAGANA_RE = re.compile(r'[\u3040-\u309F]')
 KATAKANA_RE = re.compile(r'[\u30A0-\u30FF]')
 KANJI_RE = re.compile(r'[\u4E00-\u9FFF]')
@@ -39,6 +39,7 @@ def is_japanese(text: str) -> bool:
 def translate_text(text: str) -> str:
     """
     Translates Japanese input to English using DeepL API
+    Utilizes a LRU cache
 
     Args:
         text (str): Japanese text to translate
@@ -66,6 +67,3 @@ def print_cache_stats():
     """
     cache_stats = translate_text.cache_info()
     print(cache_stats)
-
-
-print(translate_text("こんにちはホットドッグ世界"))
