@@ -1,11 +1,7 @@
 import time
-import sys
-import os
 from src.jp_translator.clipboard import get_clipboard
 from src.jp_translator.translator import translate_text
 from src.dictionary.jmdict_parser import JMDictParser
-
-sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__))))
 
 
 def main():
