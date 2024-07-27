@@ -75,7 +75,14 @@ class TranslatorApp(tk.Tk):
                 elif self.mode.get() == "dictionary":
                     result = self.dictionary.lookup(clipboard_txt)
                     if result:
-                        self.result_text.insert(tk.END, f"Your query: {clipboard_txt}\nDictionary Lookup Result:\nKanji: {result.get('kanji', 'N/A')}\nReadings: {result.get('readings', 'N/A')}\nEng: {result.get('glosses', 'N/A')}\n")
+                        self.result_text.insert(
+                            tk.END,
+                            f"Your query: {clipboard_txt}\n"
+                            f"Dictionary Lookup Result:\n"
+                            f"Kanji: {result.get('kanji', 'N/A')}\n"
+                            f"Readings: {result.get('readings', 'N/A')}\n"
+                            f"Eng: {result.get('glosses', 'N/A')}\n"
+                        )
                     else:
                         self.result_text.insert(tk.END, "No entry found. Invalid query.\n")
                     self.add_separator()

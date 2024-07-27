@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch
 from src.jp_translator.translator import is_japanese, translate_text
 
+
 class TestTranslatorFuncs(unittest.TestCase):
 
     def test_isjapanese_hiragana(self):
