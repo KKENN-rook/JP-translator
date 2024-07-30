@@ -24,7 +24,8 @@ This is a personal project meant to aid in my Japanese studying, particularly th
 2. Install dependencies:
 `pip install -r requirements.txt`  
 
-3. Download JMDict (required for dictionary usage): 
+3. Download JMDict (Place in ./src/dictionary):  
+JMDict is required for the JP dictionary feature to function. 
 Direct download: [JMDict_e.gz](<http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz>)  
 Source: [JMdict-EDICT Dictionary Project](<https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project#JMdict/EDICT_JAPANESE/ENGLISH_DICTIONARY_PROJECT>)
 

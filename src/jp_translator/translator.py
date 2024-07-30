@@ -67,5 +67,3 @@ def print_cache_stats():
     """
     cache_stats = translate_text.cache_info()
     print(cache_stats)
-
-
