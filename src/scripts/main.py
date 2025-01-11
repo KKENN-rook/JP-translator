@@ -29,15 +29,21 @@ class TranslatorApp(tk.Tk):
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
 
-        # Mode selection buttons
+        # Functional buttons 
         mode_frame = ttk.Frame(mainframe)
         mode_frame.grid(column=0, row=0, pady=10, sticky=(tk.W, tk.E))
+        
         trans_button = ttk.Button(mode_frame, text="Translation Mode", command=self.set_translation_mode)
         trans_button.grid(column=0, row=0)
+        
         dict_button = ttk.Button(mode_frame, text="Dictionary Mode", command=self.set_dictionary_mode)
         dict_button.grid(column=1, row=0)
+        
+        clear_button = ttk.Button(mode_frame, text="Clear", command=self.clear_text)
+        clear_button.grid(column=2, row=0)
+        
         quit_button = ttk.Button(mode_frame, text="Quit", command=self.quit)
-        quit_button.grid(column=2, row=0)
+        quit_button.grid(column=3, row=0)
 
         # Formats mode_frame widgets
         for child in mode_frame.winfo_children():
@@ -62,6 +68,13 @@ class TranslatorApp(tk.Tk):
     def set_dictionary_mode(self):
         self.mode.set("dictionary")
         self.result_text.insert(tk.END, "Dictionary mode selected.\n")
+
+    def clear_text(self):
+        """ 
+        Clears the content of the result_text Text widget.
+        """
+        # Line 1 character 0 to the end of the widget 
+        self.result_text.delete('1.0', tk.END)
 
     def check_clipboard(self):
         while self.running:
